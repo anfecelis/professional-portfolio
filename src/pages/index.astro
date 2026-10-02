@@ -1,0 +1,345 @@
+---
+import '../styles/global.css';
+
+const experience = [
+  {
+    id: 'globant',
+    kind: 'work',
+    company: 'Globant',
+    role: 'Test Automation Engineer',
+    dates: 'Oct 2022 – present',
+    years: '2022 – present',
+    context: 'Technical QA leadership · API, UI and unit testing',
+    lead: 'I connect hands-on automation with the people and practices that make a test suite useful over time.',
+    details: [
+      'Provide technical leadership to a six-person team and have mentored eight QA and development professionals.',
+      'Work with approximately 150 automated API cases using Node.js, Mocha/Chai and Karate DSL.',
+      'Develop Java/Spring Boot unit tests that run on every merge request; automate UI checks with Selenium/Cucumber and run manual regression every two weeks.',
+    ],
+    signals: ['Technical leadership · 6 people', '~150 automated API cases', 'Unit tests in CI/CD'],
+  },
+  {
+    id: 'uc3m-masters',
+    kind: 'education',
+    company: 'Universidad Carlos III de Madrid',
+    role: 'Master’s in Entrepreneurship',
+    dates: 'Sep 2021 – Sep 2022',
+    years: '2021 – 2022',
+    context: 'Postgraduate study · Getafe, Spain',
+    lead: 'I earned the Master in Entrepreneurship and Business Venturing at Universidad Carlos III de Madrid.',
+    details: [
+      'Received the Special Prize for the Highest Academic Achievement in the master’s program for the 2021/22 academic year; awarded in November 2022.',
+      'During this period, completed a traineeship at Beside (Feb–Mar 2022), supporting employer and sponsor outreach for Powercoders and researching the AI market in Spain.',
+    ],
+    signals: ['Postgraduate study', 'Academic prize · 2021/22', 'Powercoders traineeship'],
+  },
+  {
+    id: 'globant-automation-2020',
+    kind: 'work',
+    company: 'Globant',
+    role: 'Test Automation Engineer',
+    dates: 'Aug 2020 – Aug 2021',
+    years: '2020 – 2021',
+    context: 'Agile delivery · microservices, web and mobile',
+    lead: 'I developed automated API tests and contributed to regression testing across web and mobile products.',
+    details: [
+      'Developed and executed automated API tests for microservices using Node.js, JavaScript, Mocha and Chai.',
+      'Contributed to regression testing and test automation for web and mobile products in an Agile team.',
+      'Worked with developers and QA colleagues to identify and analyze defects.',
+    ],
+    signals: ['API automation', 'Node.js · Mocha · Chai', 'Web · mobile'],
+  },
+  {
+    id: 'globant-qc-2018',
+    kind: 'work',
+    company: 'Globant',
+    role: 'Quality Control Analyst',
+    dates: 'Aug 2018 – Aug 2020',
+    years: '2018 – 2020',
+    context: 'Mobile applications · multimedia streaming services',
+    lead: 'I guided QA activities and tested mobile and streaming experiences, including the microservices behind them.',
+    details: [
+      'Guided QA teams in planning, executing and tracking quality activities.',
+      'Designed and executed functional and regression tests for Android and iOS applications and multimedia streaming services.',
+      'Validated microservices with Postman and monitored logs to identify and analyze defects.',
+    ],
+    signals: ['Android · iOS', 'Streaming services', 'Postman · log analysis'],
+  },
+  {
+    id: 'independent-consulting',
+    kind: 'consulting',
+    company: 'Self-employed',
+    role: 'Technology and Innovation Consultant',
+    dates: 'Nov 2017 – Aug 2018',
+    years: '2017 – 2018',
+    context: 'Independent consulting · software and web projects',
+    lead: 'I advised clients on software projects and helped deliver the first version of a mobile game designed to support the care of older adults.',
+    details: [
+      'Advised companies and independent clients on defining, planning and delivering software projects and web solutions.',
+      'Participated in the mobile game’s early planning, led hiring and supported technical delivery of its first version.',
+      'Continued as a technical advisor to the product and created websites for private clients.',
+    ],
+    signals: ['Independent consulting', 'Mobile product delivery', 'Technical advisory'],
+  },
+  {
+    id: 'prodigious',
+    kind: 'work',
+    company: 'Prodigious Latin America',
+    role: 'QA Lead',
+    dates: 'Jan 2016 – Oct 2017',
+    years: '2016 – 2017',
+    context: 'Automotive product · Adobe Experience Manager · preproduction UAT',
+    lead: 'I led nine QA analysts through web and mobile UAT, keeping regression coverage and sprint progress visible across teams.',
+    details: [
+      'Designed the project test plan and strategy for web, Android and iOS.',
+      'Maintained more than 300 regression cases across browsers and devices.',
+      'Reported sprint progress and onboarded and trained QA colleagues in the UK and India.',
+    ],
+    signals: ['9 QA analysts', '300+ regression cases', 'Web · Android · iOS'],
+  },
+  {
+    id: 'easy-solutions',
+    kind: 'work',
+    company: 'Easy Solutions',
+    role: 'QA Lead',
+    dates: 'Jun 2015 – Dec 2015',
+    years: '2015',
+    context: 'Internal fraud-case tracking application · redesign',
+    lead: 'I helped give a redesign its testing structure while working closely with the team that used the application.',
+    details: [
+      'Led QA activities and mentored a junior analyst.',
+      'Designed the test plan, strategy, risk matrix and regression cases.',
+      'Executed manual UI, integration and MySQL database tests.',
+    ],
+    signals: ['QA planning', 'Risk matrix', 'Manual integration testing'],
+  },
+];
+
+const approach = [
+  {
+    title: 'Specify & assess risk',
+    text: 'Map user journeys, architecture and acceptance criteria. Include AI and agent failure modes when they are part of the product.',
+    agentSkill: 'Specification review · risk mapping',
+  },
+  {
+    title: 'Build & design coverage',
+    text: 'Pair unit, API, UI and regression checks with reference cases, scoring rubrics and multi-step tasks for AI features.',
+    agentSkill: 'Candidate cases · synthetic data',
+  },
+  {
+    title: 'Execute & evaluate',
+    text: 'Run automation and exploratory tests. Inspect outputs, traces and tool calls; probe prompt injection and data exposure where relevant.',
+    agentSkill: 'Trace triage · failure clustering',
+  },
+  {
+    title: 'Release & learn',
+    text: 'Review coverage and residual risk for a human go/no-go decision. Turn defects and live signals into new regression cases.',
+    agentSkill: 'Evidence summary · case updates',
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#052011" />
+    <meta name="description" content="Andrés Felipe Celis Gómez — QA leadership, test strategy and hands-on automation. Selected work from Prodigious, Globant and Easy Solutions, plus recent AI projects." />
+    <title>Andrés Felipe Celis Gómez — QA Leadership & Test Automation</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <!--
+    THESIS: A portfolio of verifiable QA work, not a generic career landing page; professional QA and AI product work stay distinct.
+    OWN-WORLD: A cool marine-and-white evidence file: broad dark fields, ruled records, calm teal signals, and typography that scans like a strong report.
+    STORY: See the leadership and automation record first, examine QA roles, independent consulting and postgraduate study, understand the AI-augmented testing lifecycle, then explore adjacent AI work and make contact.
+    FIRST VIEWPORT: Name and navigation above a large left-hand statement; the pixel-art portrait occupies the right-hand column. Contact action remains visible.
+    FORM: An evidence-led casefile with a portrait-led introduction and a vertical career timeline whose cards open role or study details.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="hero-shell">
+      <header class="site-header wrap">
+        <a class="brand" href="/" aria-label="Andrés Celis — Senior QA Engineer, home">
+          <span class="brand-wordmark">Andrés Celis<span>Senior QA Engineer</span></span>
+        </a>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <a href="#work">Work</a>
+          <a href="#approach">Approach</a>
+          <a href="#projects">Projects</a>
+        </nav>
+        <a class="header-contact" href="mailto:anfecelis@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
+      </header>
+    </div>
+
+    <main id="main">
+      <div class="hero-shell">
+        <section class="hero wrap" id="top" aria-labelledby="hero-title">
+          <h1 id="hero-title">Leading people.<br />Building coverage.<br /><em>Making risk visible.</em></h1>
+          <figure class="hero-portrait">
+            <img src="/images/andres-celis-pixel-8bit.png" width="1254" height="1254" alt="Pixel-art portrait of Andrés Felipe Celis Gómez, smiling in front of a bookshelf" loading="eager" fetchpriority="high" />
+          </figure>
+          <div class="hero-copy">
+            <p class="hero-intro">I’m Andrés Felipe Celis Gómez — a QA engineer and former QA Lead who combines hands-on test automation with technical leadership.</p>
+            <p class="hero-bio">My experience spans financial services and entertainment across web, mobile, APIs and microservices. I’ve led and mentored QA teams across multiple regions while staying hands-on with API, UI and Java unit-test automation. I also develop AI projects and explore how AI-assisted workflows can strengthen software quality.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-light" href="#work">Experience <span aria-hidden="true">↘</span></a>
+            <a class="text-link text-link-light" href="mailto:anfecelis@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hero-location">Based in Bogotá, Colombia</p>
+        </section>
+    </div>
+
+    <section class="work-section section-pad" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2 id="work-title">Timeline</h2>
+          <p>Across QA roles, independent technology consulting and postgraduate study, my path brings together hands-on engineering, technical leadership and continued learning.<br />Select a card for details.</p>
+        </div>
+
+        <ol class="experience-timeline" aria-label="QA roles, independent consulting and postgraduate study, newest first">
+          {experience.map((item, index) => (
+            <li class:list={['timeline-entry', { 'timeline-entry--secondary': item.kind === 'education' || item.kind === 'consulting' }]} id={item.id} style={`grid-row: ${index + 1}`}>
+              <button class="timeline-card" type="button" data-dialog-target={`dialog-${item.id}`} aria-haspopup="dialog" aria-controls={`dialog-${item.id}`}>
+                <span class="timeline-years">{item.years}</span>
+                <span class="timeline-role"><strong>{item.role}</strong><span>{item.company}</span></span>
+                <span class="timeline-arrow" aria-hidden="true">↗</span>
+              </button>
+            </li>
+          ))}
+        </ol>
+
+        {experience.map((item) => (
+          <dialog class="role-dialog" id={`dialog-${item.id}`} aria-labelledby={`dialog-title-${item.id}`} aria-describedby={`dialog-lead-${item.id}`}>
+            <div class="dialog-topline">
+              <span class="dialog-company">{item.company}</span>
+              <form method="dialog"><button class="dialog-close" type="submit" aria-label={`Close ${item.role} details`}>×</button></form>
+            </div>
+            <h3 id={`dialog-title-${item.id}`}>{item.role}</h3>
+            <p class="dialog-dates">{item.dates}</p>
+            <p class="dialog-context">{item.context}</p>
+            <p class="dialog-lead" id={`dialog-lead-${item.id}`}>{item.lead}</p>
+            <ul class="dialog-details">
+              {item.details.map((detail) => <li>{detail}</li>)}
+            </ul>
+            <div class="dialog-signals" aria-label="Key facts">
+              {item.signals.map((signal) => <span>{signal}</span>)}
+            </div>
+          </dialog>
+        ))}
+      </div>
+    </section>
+
+    <section class="approach-section section-pad" id="approach" aria-labelledby="approach-title">
+      <div class="wrap approach-wrap">
+        <div class="approach-heading">
+          <h2 id="approach-title">An AI-augmented quality loop</h2>
+          <div class="approach-intro">
+            <p>This proposed approach connects software development, QA and evaluation of generative and agentic AI. Bounded agents can accelerate analysis and investigation; people define quality, verify failures and own release decisions.</p>
+            <div class="approach-lenses" aria-label="Two complementary uses of AI in quality engineering">
+              <p><strong>AI for QA</strong> Draft cases, test data and investigation hypotheses for human review.</p>
+              <p><strong>QA for AI</strong> Evaluate variable outputs, multi-step agent actions, tool use and safety.</p>
+            </div>
+          </div>
+        </div>
+        <div class="approach-diagram">
+          <ol class="approach-flow" aria-label="Four-stage proposed quality lifecycle">
+            {approach.map((step, index) => (
+              <li class="approach-step">
+                <span class="step-marker" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+                <div class="approach-agent-skill">
+                  <span>Agent skill</span>
+                  <p>{step.agentSkill}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div class="approach-loop">
+            <svg viewBox="0 0 1000 76" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M984 0 V34 Q984 54 964 54 H36 Q16 54 16 34 V8" />
+              <path d="M8 17 L16 8 L24 17" />
+            </svg>
+            <p><strong>AI feedback loop</strong><span>Observe failures → propose new cases and safeguards → review → re-evaluate.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section section-pad" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-intro projects-intro">
+          <h2 id="projects-title">Recent AI builds</h2>
+          <p>These are software-development projects that reflect curiosity and hands-on learning. They complement my professional QA record; they are not presented as client QA work.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project project-featured">
+            <div class="project-topline"><span>Hardcore AI + 30X - Program Demo</span><span>Jul 2026</span></div>
+            <h3>Tinwa</h3>
+            <p class="project-description">An AI assistant for architecture studios, designed to consolidate supplier quotes into proposals that require human approval.</p>
+            <p>I identified the problem, specified the architecture using AIDLC, implemented part of the planned MVP, orchestrated agents with OpenSymphony and deployed an initial version to production.</p>
+            <div class="project-tags"><span>AIDLC</span><span>Agent orchestration</span><span>Human approval</span></div>
+          </article>
+
+          <article class="project">
+            <div class="project-topline"><span>AI Tinkerers + OpenAI Hackathon</span><span>Sep 2026</span></div>
+            <h3>Xentinela</h3>
+            <p class="project-description">A proposed mobile AI agent to detect signs of phone scams and alert users.</p>
+            <p>At an AI Tinkerers hackathon sponsored by OpenAI, I helped frame and specify the problem and implemented part of the MVP backend.</p>
+            <div class="project-links">
+              <a href="https://bogota.aitinkerers.org/hackathons/h_q4-sNJw_JYI/entries/ht_Mrdx-8bcRik" target="_blank" rel="noopener noreferrer">Official project entry <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/cdcordobaa/hackathon-agents-tinkers/tree/main" target="_blank" rel="noopener noreferrer">Team repository <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="learning-note">
+          <h3>Always learning, with a quality lens.</h3>
+          <p>Hardcore AI included dedicated QA and security modules. I also completed the MIT Entrepreneurship Online Bootcamp (2018). Earlier, Happtic—a proposed mobile and vibrotactile learning aid—was selected as an Ayudapps winner by Colciencias.</p>
+        </div>
+      </div>
+    </section>
+
+    </main>
+
+    <footer class="contact-section" id="contact">
+      <div class="wrap contact-inner">
+        <div>
+          <h2>A Quality mindset for building reliable products.</h2>
+          <p>Earning trust with a quality state of mind</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-light" href="mailto:anfecelis@gmail.com">anfecelis@gmail.com <span aria-hidden="true">↗</span></a>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/anfecelis/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/anfecelis/" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="wrap footer-bottom"><span>Andrés Felipe Celis Gómez</span><span>Bogotá, Colombia</span></div>
+    </footer>
+    <script>
+      document.querySelectorAll<HTMLButtonElement>('.timeline-card[data-dialog-target]').forEach((trigger) => {
+        const dialog = document.getElementById(trigger.dataset.dialogTarget ?? '');
+        if (!(dialog instanceof HTMLDialogElement)) return;
+
+        trigger.addEventListener('click', () => {
+          dialog.showModal();
+          dialog.scrollTop = 0;
+        });
+        dialog.addEventListener('close', () => trigger.focus({ preventScroll: true }));
+        dialog.addEventListener('click', (event) => {
+          const bounds = dialog.getBoundingClientRect();
+          if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+            dialog.close();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
