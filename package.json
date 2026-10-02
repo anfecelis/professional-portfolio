@@ -1,0 +1,16 @@
+{
+  "name": "andres-celis-qa-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/merriweather": "^5.3.0",
+    "@fontsource-variable/raleway": "^5.3.0",
+    "astro": "^7.3.5"
+  }
+}
