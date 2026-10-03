@@ -1,4 +1,5 @@
 ---
+import AstraIcon from '../components/AstraIcon.astro';
 import '../styles/global.css';
 
 const experience = [
@@ -179,17 +180,19 @@ const approach = [
         <section class="hero wrap" id="top" aria-labelledby="hero-title">
           <h1 id="hero-title">Leading people.<br />Building coverage.<br /><em>Making risk visible.</em></h1>
           <figure class="hero-portrait">
-            <img src="/images/andres-celis-pixel-8bit.png" width="1254" height="1254" alt="Pixel-art portrait of Andrés Felipe Celis Gómez, smiling in front of a bookshelf" loading="eager" fetchpriority="high" />
+            <button class="portrait-toggle" type="button" aria-label="Black-and-white portrait of Andrés Celis" aria-pressed="false">
+              <img src="/images/andres-celis-pixel-8bit.png" width="1254" height="1254" alt="Pixel-art portrait of Andrés Felipe Celis Gómez, smiling in front of a bookshelf" loading="eager" fetchpriority="high" />
+              <img class="portrait-monochrome" src="/images/andres-celis-pixel-grayscale.png" width="1254" height="1254" alt="" aria-hidden="true" loading="eager" fetchpriority="low" decoding="async" />
+            </button>
           </figure>
           <div class="hero-copy">
             <p class="hero-intro">I’m Andrés Felipe Celis Gómez — a QA engineer and former QA Lead who combines hands-on test automation with technical leadership.</p>
             <p class="hero-bio">My experience spans financial services and entertainment across web, mobile, APIs and microservices. I’ve led and mentored QA teams across multiple regions while staying hands-on with API, UI and Java unit-test automation. I also develop AI projects and explore how AI-assisted workflows can strengthen software quality.</p>
           </div>
           <div class="hero-actions">
-            <a class="button button-light" href="#work">Experience <span aria-hidden="true">↘</span></a>
-            <a class="text-link text-link-light" href="mailto:hi@andres-celis.dev">Email me <span aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="#work">Experience <AstraIcon name="arrow-down-border" class="experience-icon" /></a>
           </div>
-          <p class="hero-location">Based in Bogotá, Colombia</p>
+          <p class="hero-location"><AstraIcon name="location" /><span>Based in Bogotá, Colombia</span></p>
         </section>
     </div>
 
@@ -206,7 +209,7 @@ const approach = [
               <button class="timeline-card" type="button" data-dialog-target={`dialog-${item.id}`} aria-haspopup="dialog" aria-controls={`dialog-${item.id}`}>
                 <span class="timeline-years">{item.years}</span>
                 <span class="timeline-role"><strong>{item.role}</strong><span>{item.company}</span></span>
-                <span class="timeline-arrow" aria-hidden="true">↗</span>
+                <AstraIcon name="arrow-down-border" class="timeline-arrow" />
               </button>
             </li>
           ))}
@@ -321,9 +324,18 @@ const approach = [
           </div>
         </div>
       </div>
-      <div class="wrap footer-bottom"><span>Andrés Felipe Celis Gómez</span><span>Bogotá, Colombia</span></div>
+      <div class="wrap footer-bottom"><span>Andrés Felipe Celis Gómez</span><span class="footer-location"><AstraIcon name="location" />Bogotá, Colombia</span></div>
     </footer>
     <script>
+      const portrait = document.querySelector<HTMLButtonElement>('.portrait-toggle');
+
+      portrait?.addEventListener('click', () => {
+        const monochrome = portrait.getAttribute('aria-pressed') !== 'true';
+        portrait.setAttribute('aria-pressed', String(monochrome));
+        portrait.dataset.hoverDismissed = String(!monochrome && portrait.matches(':hover'));
+      });
+      portrait?.addEventListener('pointerleave', () => delete portrait.dataset.hoverDismissed);
+
       document.querySelectorAll<HTMLButtonElement>('.timeline-card[data-dialog-target]').forEach((trigger) => {
         const dialog = document.getElementById(trigger.dataset.dialogTarget ?? '');
         if (!(dialog instanceof HTMLDialogElement)) return;

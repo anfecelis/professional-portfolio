@@ -279,12 +279,26 @@ a:focus-visible {
   grid-area: portrait;
   width: min(100%, 28rem);
   margin: 0;
-  overflow: hidden;
-  aspect-ratio: 1;
   align-self: center;
   justify-self: end;
-  border: 1px solid var(--line);
-  background: var(--navy-2);
+}
+
+.portrait-toggle {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+}
+
+.portrait-toggle:focus-visible {
+  outline: 3px solid var(--aqua);
+  outline-offset: 5px;
 }
 
 .hero-portrait img {
@@ -293,6 +307,23 @@ a:focus-visible {
   height: 100%;
   object-fit: cover;
   image-rendering: pixelated;
+}
+
+.hero-portrait .portrait-monochrome {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.portrait-toggle[aria-pressed="true"] .portrait-monochrome {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .portrait-toggle:not([data-hover-dismissed="true"]):hover .portrait-monochrome {
+    opacity: 1;
+  }
 }
 
 .hero-actions {
@@ -331,6 +362,22 @@ a:focus-visible {
   background: var(--ink-soft);
 }
 
+.astra-icon {
+  display: block;
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.experience-icon {
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.button:hover .experience-icon,
+.button:focus-visible .experience-icon {
+  transform: translateY(2px);
+}
+
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -343,6 +390,19 @@ a:focus-visible {
 
 .text-link-light {
   color: var(--ink);
+}
+
+.hero-location,
+.footer-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-location .astra-icon,
+.footer-location .astra-icon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .hero-location {
@@ -526,13 +586,12 @@ a:focus-visible {
   grid-column: 2;
   grid-row: 1 / span 2;
   color: var(--ink);
-  font-size: 1.3rem;
   transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .timeline-card:hover .timeline-arrow,
 .timeline-card:focus-visible .timeline-arrow {
-  transform: translate(2px, -2px);
+  transform: translateY(2px);
 }
 
 .role-dialog {
