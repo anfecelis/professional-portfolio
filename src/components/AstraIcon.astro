@@ -1,0 +1,21 @@
+---
+// Astra Icons linear SVGs: https://github.com/uiastra/astraicons
+// Copyright (c) 2024 UI Astra. MIT license: /licenses/astraicons.txt
+interface Props {
+  name: 'arrow-down-border' | 'location';
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+---
+
+<svg class:list={['astra-icon', className]} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  {name === 'arrow-down-border' ? (
+    <path d="M12 7L14.5062 7C17.6178 7 18.8921 8.95472 17.3362 11.3466L16.0831 13.2763L14.83 15.2061C13.2742 17.598 10.7258 17.598 9.16996 15.2061L7.91686 13.2763L6.66375 11.3466C5.10793 8.95472 6.38216 7 9.49379 7L12 7Z" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+  ) : (
+    <>
+      <path d="M19 10.5C19 15.6421 13.4 21 12 21C10.6 21 5 15.6421 5 10.5C5 6.35786 8.13401 3 12 3C15.866 3 19 6.35786 19 10.5Z" />
+      <circle cx="12" cy="10" r="3" />
+    </>
+  )}
+</svg>
