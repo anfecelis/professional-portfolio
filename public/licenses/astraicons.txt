@@ -1,6 +1,7 @@
-Astra Icons — Arrow Down Border and Location (linear variants)
+Astra Icons — Arrow Down Border, Location and Email (linear variants),
+LinkedIn and GitHub (brand variants)
 Source: https://github.com/uiastra/astraicons
-The SVG stroke color is adapted to inherit the portfolio's currentColor.
+The SVG stroke and fill colors are adapted to inherit the portfolio's currentColor.
 
 MIT License
 
