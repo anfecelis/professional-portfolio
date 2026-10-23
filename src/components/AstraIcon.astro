@@ -2,7 +2,7 @@
 // Astra Icons linear and brand SVGs: https://github.com/uiastra/astraicons
 // Copyright (c) 2024 UI Astra. MIT license: /licenses/astraicons.txt
 interface Props {
-  name: 'arrow-down-border' | 'location' | 'email' | 'linkedin' | 'github';
+  name: 'arrow-down-border' | 'location' | 'email' | 'linkedin' | 'github' | 'language';
   class?: string;
 }
 
@@ -24,6 +24,12 @@ const isBrand = name === 'linkedin' || name === 'github';
     <>
       <path d="M18.5768 5.22574L13.2427 12.8981C12.6355 13.56 11.5868 13.5435 11.0007 12.863L4.50046 5.22506M9.08782 11.5517L5.62579 16.0809M18.501 16L14.5788 11.1638" stroke-linecap="round" />
       <rect x="2" y="4" width="20" height="16" rx="4.5" />
+    </>
+  )}
+  {name === 'language' && (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="4.5" />
+      <path d="M18 9H7M9 7V9M15 7V9M15 9C15 12.8689 11.416 16 7 16M18 16C16.022 16 14.2637 15.2227 13 14M9 9C9 10.6581 7.656 12 6 12M11 12C10.2088 12 9.5055 11.6113 9 11" stroke-linecap="round" stroke-linejoin="round" />
     </>
   )}
   {name === 'linkedin' && (

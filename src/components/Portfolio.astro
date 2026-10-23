@@ -1,0 +1,264 @@
+---
+import AstraIcon from './AstraIcon.astro';
+import { en } from '../i18n/en';
+import { es } from '../i18n/es';
+import '../styles/global.css';
+
+interface Props {
+  locale: 'en' | 'es';
+}
+
+const { locale } = Astro.props;
+const copy = locale === 'es' ? es : en;
+const { experience, approach } = copy;
+const localePath = locale === 'es' ? '/es/' : '/';
+const alternateLocale = locale === 'es' ? 'en' : 'es';
+const alternatePath = locale === 'es' ? '/' : '/es/';
+const alternateName = locale === 'es' ? 'English' : 'Español';
+const canonical = new URL(localePath, Astro.site);
+const englishUrl = new URL('/', Astro.site);
+const spanishUrl = new URL('/es/', Astro.site);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#052011" />
+    <meta name="description" content={copy.meta.description} />
+    <title>{copy.meta.title}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="es" href={spanishUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishUrl} />
+    <meta property="og:title" content={copy.meta.title} />
+    <meta property="og:description" content={copy.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locale === 'es' ? 'es_CO' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_CO'} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <!--
+    THESIS: A portfolio of verifiable QA work, not a generic career landing page; professional QA and AI product work stay distinct.
+    OWN-WORLD: A cool marine-and-white evidence file: broad dark fields, ruled records, calm teal signals, and typography that scans like a strong report.
+    STORY: See the leadership and automation record first, examine QA roles, independent consulting and postgraduate study, understand the AI-augmented testing lifecycle, then explore adjacent AI work and make contact.
+    FIRST VIEWPORT: Name and navigation above a large left-hand statement; the pixel-art portrait occupies the right-hand column. Contact action remains visible.
+    FORM: An evidence-led casefile with a portrait-led introduction and a vertical career timeline whose cards open role or study details.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <a class="skip-link" href="#main">{copy.skipLink}</a>
+
+    <div class="hero-shell">
+      <header class="site-header wrap">
+        <a class="brand" href={localePath} aria-label={copy.header.homeLabel}>
+          <span class="brand-wordmark">Andrés Celis<span>{copy.header.role}</span></span>
+        </a>
+        <nav class="primary-nav" aria-label={copy.header.navLabel}>
+          <a href="#work">{copy.header.work}</a>
+          <a href="#approach">{copy.header.approach}</a>
+          <a href="#projects">{copy.header.projects}</a>
+        </nav>
+        <div class="header-actions">
+          <a class="header-contact" href="mailto:hi@andres-celis.dev" aria-label={copy.header.contact}><span class="header-contact-label">{copy.header.contact}</span><AstraIcon name="email" /></a>
+          <a class="language-switch" href={alternatePath} hreflang={alternateLocale} lang={alternateLocale} aria-label={copy.header.languageLabel} title={alternateName} data-language-switch>
+            <AstraIcon name="language" /><span>{alternateLocale.toUpperCase()}</span>
+          </a>
+        </div>
+      </header>
+    </div>
+
+    <main id="main">
+      <div class="hero-shell">
+        <section class="hero wrap" id="top" aria-labelledby="hero-title">
+          <h1 id="hero-title">{copy.hero.title[0]}<br />{copy.hero.title[1]}<br /><em>{copy.hero.title[2]}</em></h1>
+          <figure class="hero-portrait">
+            <button class="portrait-toggle" type="button" aria-label={copy.hero.portraitLabel} aria-pressed="false">
+              <img src="/images/andres-celis-pixel-8bit.png" width="1254" height="1254" alt={copy.hero.portraitAlt} loading="eager" fetchpriority="high" />
+              <img class="portrait-monochrome" src="/images/andres-celis-pixel-grayscale.png" width="1254" height="1254" alt="" aria-hidden="true" loading="eager" fetchpriority="low" decoding="async" />
+            </button>
+          </figure>
+          <div class="hero-copy">
+            <p class="hero-intro">{copy.hero.intro}</p>
+            <p class="hero-bio">{copy.hero.bio}</p>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-light" href="#work">{copy.hero.experience} <AstraIcon name="arrow-down-border" class="experience-icon" /></a>
+          </div>
+          <p class="hero-location"><AstraIcon name="location" /><span>{copy.hero.location}</span></p>
+        </section>
+    </div>
+
+    <section class="work-section section-pad" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2 id="work-title">{copy.timeline.title}</h2>
+          <p>{copy.timeline.intro}<br />{copy.timeline.prompt}</p>
+        </div>
+
+        <ol class="experience-timeline" aria-label={copy.timeline.label}>
+          {experience.map((item, index) => (
+            <li class:list={['timeline-entry', { 'timeline-entry--secondary': item.kind === 'education' || item.kind === 'consulting' }]} id={item.id} style={`grid-row: ${index + 1}`}>
+              <button class="timeline-card" type="button" data-dialog-target={`dialog-${item.id}`} aria-haspopup="dialog" aria-controls={`dialog-${item.id}`}>
+                <span class="timeline-years">{item.years}</span>
+                <span class="timeline-role"><strong>{item.role}</strong><span>{item.company}</span></span>
+                <AstraIcon name="arrow-down-border" class="timeline-arrow" />
+              </button>
+            </li>
+          ))}
+        </ol>
+
+        {experience.map((item) => (
+          <dialog class="role-dialog" id={`dialog-${item.id}`} aria-labelledby={`dialog-title-${item.id}`} aria-describedby={`dialog-lead-${item.id}`}>
+            <div class="dialog-topline">
+              <span class="dialog-company">{item.company}</span>
+              <form method="dialog"><button class="dialog-close" type="submit" aria-label={`${copy.timeline.closeLabel} ${item.role}`}>×</button></form>
+            </div>
+            <h3 id={`dialog-title-${item.id}`}>{item.role}</h3>
+            <p class="dialog-dates">{item.dates}</p>
+            <p class="dialog-context">{item.context}</p>
+            <p class="dialog-lead" id={`dialog-lead-${item.id}`}>{item.lead}</p>
+            <ul class="dialog-details">
+              {item.details.map((detail) => <li>{detail}</li>)}
+            </ul>
+            <div class="dialog-signals" aria-label={copy.timeline.factsLabel}>
+              {item.signals.map((signal) => <span>{signal}</span>)}
+            </div>
+          </dialog>
+        ))}
+      </div>
+    </section>
+
+    <section class="approach-section section-pad" id="approach" aria-labelledby="approach-title">
+      <div class="wrap approach-wrap">
+        <div class="approach-heading">
+          <h2 id="approach-title">{copy.quality.title}</h2>
+          <div class="approach-intro">
+            <p>{copy.quality.intro}</p>
+            <div class="approach-lenses" aria-label={copy.quality.lensesLabel}>
+              <p><strong>{copy.quality.aiForQa}</strong> {copy.quality.aiForQaText}</p>
+              <p><strong>{copy.quality.qaForAi}</strong> {copy.quality.qaForAiText}</p>
+            </div>
+          </div>
+        </div>
+        <div class="approach-diagram">
+          <ol class="approach-flow" aria-label={copy.quality.flowLabel}>
+            {approach.map((step, index) => (
+              <li class="approach-step">
+                <span class="step-marker" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+                <div class="approach-agent-skill">
+                  <span>{copy.quality.agentSkill}</span>
+                  <p>{step.agentSkill}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div class="approach-loop">
+            <svg viewBox="0 0 1000 76" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M984 0 V34 Q984 54 964 54 H36 Q16 54 16 34 V8" />
+              <path d="M8 17 L16 8 L24 17" />
+            </svg>
+            <p><strong>{copy.quality.loopTitle}</strong><span>{copy.quality.loopText}</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section section-pad" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-intro projects-intro">
+          <h2 id="projects-title">{copy.projects.title}</h2>
+          <p>{copy.projects.intro}</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project project-featured">
+            <div class="project-topline"><span>{copy.projects.tinwa.label}</span><span>{copy.projects.tinwa.date}</span></div>
+            <h3>Tinwa</h3>
+            <p class="project-description">{copy.projects.tinwa.description}</p>
+            <p>{copy.projects.tinwa.text}</p>
+            <div class="project-tags">{copy.projects.tinwa.tags.map((tag) => <span>{tag}</span>)}</div>
+          </article>
+
+          <article class="project">
+            <div class="project-topline"><span>{copy.projects.xentinela.label}</span><span>{copy.projects.xentinela.date}</span></div>
+            <h3>Xentinela</h3>
+            <p class="project-description">{copy.projects.xentinela.description}</p>
+            <p>{copy.projects.xentinela.text}</p>
+            <div class="project-links">
+              <a href="https://bogota.aitinkerers.org/hackathons/h_q4-sNJw_JYI/entries/ht_Mrdx-8bcRik" target="_blank" rel="noopener noreferrer">{copy.projects.xentinela.entryLabel} <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/cdcordobaa/hackathon-agents-tinkers/tree/main" target="_blank" rel="noopener noreferrer">{copy.projects.xentinela.repoLabel} <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="learning-note">
+          <h3>{copy.projects.learningTitle}</h3>
+          <p>{copy.projects.learningText}</p>
+        </div>
+      </div>
+    </section>
+
+    </main>
+
+    <footer class="contact-section" id="contact">
+      <div class="wrap contact-inner">
+        <div>
+          <h2>{copy.contact.title}</h2>
+          <p>{copy.contact.tagline}</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-light" href="mailto:hi@andres-celis.dev" aria-label={copy.contact.accessibleLabel}>{copy.contact.label} <AstraIcon name="email" /></a>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/anfecelis/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><AstraIcon name="linkedin" /></a>
+            <a href="https://github.com/anfecelis/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><AstraIcon name="github" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="wrap footer-bottom"><span>Andrés Felipe Celis Gómez</span><span class="footer-location"><AstraIcon name="location" />Bogotá, Colombia</span></div>
+    </footer>
+    <script>
+      const languageSwitch = document.querySelector<HTMLAnchorElement>('[data-language-switch]');
+      if (languageSwitch) {
+        const alternatePath = languageSwitch.getAttribute('href') ?? '/';
+        const syncLanguageLink = () => {
+          // The language link works without JS and preserves a valid section when enhanced.
+          const hash = window.location.hash;
+          languageSwitch.href = alternatePath + (hash && document.getElementById(hash.slice(1)) ? hash : '');
+        };
+        syncLanguageLink();
+        window.addEventListener('hashchange', syncLanguageLink);
+      }
+
+      const portrait = document.querySelector<HTMLButtonElement>('.portrait-toggle');
+
+      portrait?.addEventListener('click', () => {
+        const monochrome = portrait.getAttribute('aria-pressed') !== 'true';
+        portrait.setAttribute('aria-pressed', String(monochrome));
+        portrait.dataset.hoverDismissed = String(!monochrome && portrait.matches(':hover'));
+      });
+      portrait?.addEventListener('pointerleave', () => delete portrait.dataset.hoverDismissed);
+
+      document.querySelectorAll<HTMLButtonElement>('.timeline-card[data-dialog-target]').forEach((trigger) => {
+        const dialog = document.getElementById(trigger.dataset.dialogTarget ?? '');
+        if (!(dialog instanceof HTMLDialogElement)) return;
+
+        trigger.addEventListener('click', () => {
+          dialog.showModal();
+          dialog.scrollTop = 0;
+        });
+        dialog.addEventListener('close', () => trigger.focus({ preventScroll: true }));
+        dialog.addEventListener('click', (event) => {
+          const bounds = dialog.getBoundingClientRect();
+          if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+            dialog.close();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

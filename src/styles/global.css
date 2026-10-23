@@ -66,6 +66,7 @@ h3,
 .brand,
 .primary-nav,
 .header-contact,
+.language-switch,
 .button,
 .text-link,
 .hero-location,
@@ -177,6 +178,7 @@ a:focus-visible {
 
 .primary-nav a,
 .header-contact,
+.language-switch,
 .social-links a {
   text-decoration: none;
   font-size: 0.89rem;
@@ -193,7 +195,15 @@ a:focus-visible {
   color: var(--aqua);
 }
 
-.header-contact {
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: none;
+}
+
+.header-contact,
+.language-switch {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -205,9 +215,19 @@ a:focus-visible {
   transition: background-color 180ms ease, color 180ms ease;
 }
 
-.header-contact:hover {
+.header-contact:hover,
+.language-switch:hover {
   background: var(--white);
   color: var(--navy);
+}
+
+.language-switch {
+  justify-content: center;
+  padding-inline: 0.65rem;
+}
+
+.language-switch span {
+  min-width: 2ch;
 }
 
 .text-link span,
@@ -559,6 +579,9 @@ a:focus-visible {
 
 .timeline-role {
   grid-column: 1;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .timeline-role strong {
@@ -1218,8 +1241,18 @@ a:focus-visible {
   }
 
   .header-contact {
-    margin-left: auto;
     padding: 0.5rem 0.65rem;
+    font-size: 0.82rem;
+  }
+
+  .header-actions {
+    margin-left: auto;
+    gap: 0.5rem;
+  }
+
+  .language-switch {
+    gap: 0.35rem;
+    padding: 0.5rem;
     font-size: 0.82rem;
   }
 
@@ -1339,6 +1372,10 @@ a:focus-visible {
 }
 
 @media (max-width: 380px) {
+  .header-contact-label {
+    display: none;
+  }
+
   .wrap {
     width: min(100% - 2rem, 1280px);
   }

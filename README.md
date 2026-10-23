@@ -1,6 +1,6 @@
 # QA leadership portfolio
 
-English, one-page portfolio for Andrés Felipe Celis Gómez. It is an Astro static site with no client-side framework, database, or contact form.
+Bilingual portfolio for Andrés Felipe Celis Gómez. It is an Astro static site with no client-side framework, database, or contact form.
 
 ## Local use
 
@@ -18,7 +18,17 @@ npm run build
 npm run preview
 ```
 
-The static output is written to `dist/`. All visible copy lives in `src/pages/index.astro`; the responsive design lives in `src/styles/global.css`.
+The static output is written to `dist/`. Both languages share `src/components/Portfolio.astro`; English and Spanish copy live in `src/i18n/en.ts` and `src/i18n/es.ts`. The responsive design lives in `src/styles/global.css`.
+
+## Languages and URLs
+
+- English: `/` (the existing URL is preserved).
+- Spanish: `/es/`.
+- The header language link works without JavaScript. With JavaScript, it also preserves the current section hash.
+- Each page has its own HTML language, translated metadata, self-referencing canonical URL, and reciprocal `hreflang` links (including English as `x-default`).
+- The production origin is configured in `astro.config.mjs`. `public/sitemap.xml` lists both canonical pages, and `public/robots.txt` points to it. No language detection redirects or language cookies are used.
+
+Run `npm test` to build both pages and verify translation completeness, language URLs, SEO annotations, dialogs, internal links and asset paths. The test runner uses Node's built-in TypeScript stripping (Node 22.6+).
 
 The site self-hosts variable Raleway (headings and interface labels) and Merriweather (reading text). Their SIL Open Font License notices are included in `public/licenses/` and copied into the production build.
 
